@@ -60,7 +60,7 @@ const BlogOverview = ({ smallStats }) => (
                           <th scope="col" class="border-0">Status</th>
                           <th scope="col" class="border-0">capacibility</th>
                           <th scope="col" class="border-0">Region</th>
-                          <th scope="col" class="border-0">Spot Tag</th>
+                          <th scope="col" class="border-0">Tag</th>
                         </tr>
                       </thead>
                       <tbody>
