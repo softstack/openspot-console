@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {
-  Row,
-  Col,
-  FormSelect,
+  // Row,
+  // Col,
+  // FormSelect,
   Card,
   CardHeader,
   CardBody,
-  CardFooter
+  //CardFooter
 } from "shards-react";
 
 import Chart from "../../utils/chart";
@@ -60,27 +60,7 @@ class UsersByDevice extends React.Component {
             className="blog-users-by-device m-auto"
           />
         </CardBody>
-        <CardFooter className="border-top">
-          <Row>
-            <Col>
-              <FormSelect
-                size="sm"
-                value="last-week"
-                style={{ maxWidth: "130px" }}
-                onChange={() => {}}
-              >
-                <option value="last-week">Last Week</option>
-                <option value="today">Today</option>
-                <option value="last-month">Last Month</option>
-                <option value="last-year">Last Year</option>
-              </FormSelect>
-            </Col>
-            <Col className="text-right view-report">
-              {/* eslint-disable-next-line */}
-              <a href="#">View full report &rarr;</a>
-            </Col>
-          </Row>
-        </CardFooter>
+        
       </Card>
     );
   }
@@ -106,20 +86,20 @@ UsersByDevice.propTypes = {
 };
 
 UsersByDevice.defaultProps = {
-  title: "Users by device",
+  title: "Instances Models",
   chartData: {
     datasets: [
       {
         hoverBorderColor: "#ffffff",
-        data: [68.3, 24.2, 7.5],
+        data: [68.3, 24.2],
         backgroundColor: [
           "rgba(0,123,255,0.9)",
           "rgba(0,123,255,0.5)",
-          "rgba(0,123,255,0.3)"
+          
         ]
       }
     ],
-    labels: ["Desktop", "Tablet", "Mobile"]
+    labels: ["Spot", "OnDemand"]
   }
 };
 

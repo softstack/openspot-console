@@ -2,19 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Container, Row, Col } from "shards-react";
 
+// import {
+
+//   FormSelect,
+//   CardFooter
+// } from "shards-react";
+
 import PageTitle from "./../components/common/PageTitle";
 import SmallStats from "./../components/common/SmallStats";
-import UsersOverview from "./../components/blog/UsersOverview";
+//import UsersOverview from "./../components/blog/UsersOverview";
 import UsersByDevice from "./../components/blog/UsersByDevice";
-import NewDraft from "./../components/blog/NewDraft";
-import Discussions from "./../components/blog/Discussions";
-import TopReferrals from "./../components/common/TopReferrals";
 
 const BlogOverview = ({ smallStats }) => (
   <Container fluid className="main-content-container px-4">
     {/* Page Header */}
     <Row noGutters className="page-header py-4">
-      <PageTitle title="Blog Overview" subtitle="Dashboard" className="text-sm-left mb-3" />
+      <PageTitle title="Open Spot Metrics" subtitle="Dashboard" className="text-sm-left mb-3" />
     </Row>
 
     {/* Small Stats Blocks */}
@@ -37,30 +40,147 @@ const BlogOverview = ({ smallStats }) => (
     </Row>
 
     <Row>
-      {/* Users Overview */}
-      <Col lg="8" md="12" sm="12" className="mb-4">
-        <UsersOverview />
+      {/* instances table */}
+      <Col lg="8" md="12" sm="12" className="mb-4" >
+      <div class="row" >
+              <div class="col">
+                <div class="card card-small mb-4" >
+                  {/* style={{ overflow: "scroll" }} */}
+                  <div class="card-header border-bottom" >
+                    <h6 class="m-0">All Auto scalign groups</h6>
+                  </div>
+                  <div class="card-body p-0 pb-3 text-center"  >
+                    <table class="table mb-7"  >
+                      <thead class="bg-light">
+                        <tr >
+                          
+                          <th scope="col" class="border-0">Name</th>
+                          <th scope="col" class="border-0">confi de exec</th>
+                          <th scope="col" class="border-0">Instance</th>
+                          <th scope="col" class="border-0">Status</th>
+                          <th scope="col" class="border-0">capacibility</th>
+                          <th scope="col" class="border-0">Region</th>
+                          <th scope="col" class="border-0">Spot Tag</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><a href="teste">instance-globo</a> </td>
+                          <td>globo-teste-eks</td>
+                          <td>3</td>
+                          <td>pending</td>
+                          <td>3</td>
+                          <td>us-east-2</td>
+                          <td>
+                          <div class="custom-control custom-checkbox mb-1">
+                            <input type="checkbox" class="custom-control-input" id="formsCheckboxDefault"></input>
+                            <label class="custom-control-label" for="formsCheckboxDefault"></label>
+                          </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* <CardFooter className="border-top">
+          <Row>
+            <Col lg="4" md="6" sm="8" className="mb-4">
+            <div class="" >
+                    <h6 class="m-0"> Autoscaling Group tags</h6>
+                    
+                  </div>
+                  
+            <p></p>
+              <FormSelect
+                size="md"
+                value="last-week"
+                style={{ maxWidth: "130px" }}
+                onChange={() => {}}
+              >
+                <option value="tag names">Tag names:</option>
+                <option value="">...</option>
+                
+              </FormSelect><br></br>
+              <span style={{ fontSize: "10px" }}>For enable Spot provisionig service</span>
+             
+            </Col>
+            <Col className="text-right">
+            <div style={{ marginTop: "14%" }}>
+                
+            </div>
+            
+            <button type="submit" style={{ maxHeight: "4s0px" }} class=" mb-5 mr-3 btn btn-primary">Confirm</button>            
+            </Col>
+            
+          </Row>
+        </CardFooter> */}
+
       </Col>
 
+      
+
+      {/* Top Referrals */}
+      {/* <Col lg="8" md="12" sm="12" className="mb-4">
+        <TopReferrals />
+      </Col>
+       */}
       {/* Users by Device */}
       <Col lg="4" md="6" sm="12" className="mb-4">
         <UsersByDevice />
       </Col>
 
       {/* New Draft */}
-      <Col lg="4" md="6" sm="12" className="mb-4">
+      {/* <Col lg="4" md="6" sm="12" className="mb-4">
         <NewDraft />
-      </Col>
+      </Col> */}
 
       {/* Discussions */}
-      <Col lg="5" md="12" sm="12" className="mb-4">
+      {/* <Col lg="5" md="12" sm="12" className="mb-4">
         <Discussions />
+      </Col> */}
+
+      {/* instances table */}
+      <Col lg="12" md="12" sm="12" className="mb-4">
+      <div class="row">
+              <div class="col">
+                <div class="card card-small mb-4">
+                  <div class="card-header border-bottom">
+                    <h6 class="m-0">All instances list</h6>
+                  </div>
+                  <div class="card-body p-0 pb-3 text-center">
+                    <table class="table mb-0">
+                      <thead class="bg-light">
+                        <tr>
+                          <th scope="col" class="border-0">Id</th>
+                          <th scope="col" class="border-0">Name</th>
+                          <th scope="col" class="border-0">Group Name</th>
+                          <th scope="col" class="border-0">Auto scalling group</th>
+                          <th scope="col" class="border-0">Region</th>
+                          <th scope="col" class="border-0">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>123</td>
+                          <td><a href="teste">instance name</a></td>
+                          <td>globo-teste</td>
+                          <td>Rteste-autoscaling</td>
+                          <td>sa-east-1</td>
+                          <td>active</td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
       </Col>
 
-      {/* Top Referrals */}
-      <Col lg="3" md="12" sm="12" className="mb-4">
-        <TopReferrals />
-      </Col>
+      
     </Row>
   </Container>
 );
@@ -75,8 +195,8 @@ BlogOverview.propTypes = {
 BlogOverview.defaultProps = {
   smallStats: [
     {
-      label: "Posts",
-      value: "2,390",
+      label: "Running Spots",
+      value: "123",
       percentage: "4.7%",
       increase: true,
       chartLabels: [null, null, null, null, null, null, null],
@@ -93,8 +213,8 @@ BlogOverview.defaultProps = {
       ]
     },
     {
-      label: "Pages",
-      value: "182",
+      label: "Total Spot Hours",
+      value: "123",
       percentage: "12.4",
       increase: true,
       chartLabels: [null, null, null, null, null, null, null],
@@ -111,8 +231,8 @@ BlogOverview.defaultProps = {
       ]
     },
     {
-      label: "Comments",
-      value: "8,147",
+      label: "Spot Cost",
+      value: "123",
       percentage: "3.8%",
       increase: false,
       decrease: true,
@@ -130,8 +250,8 @@ BlogOverview.defaultProps = {
       ]
     },
     {
-      label: "New Customers",
-      value: "29",
+      label: "Saving",
+      value: "123  ",
       percentage: "2.71%",
       increase: false,
       decrease: true,
@@ -149,8 +269,8 @@ BlogOverview.defaultProps = {
       ]
     },
     {
-      label: "Subscribers",
-      value: "17,281",
+      label: "Total Saving",
+      value: "123",
       percentage: "2.4%",
       increase: false,
       decrease: true,

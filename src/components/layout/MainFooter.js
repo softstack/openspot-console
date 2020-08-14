@@ -39,7 +39,7 @@ MainFooter.propTypes = {
 
 MainFooter.defaultProps = {
   contained: false,
-  copyright: "Copyright © 2018 DesignRevision",
+  copyright: "Copyright © OpenSpot",
   menuItems: [
     {
       title: "Home",
@@ -50,7 +50,7 @@ MainFooter.defaultProps = {
       to: "#"
     },
     {
-      title: "About",
+      title: "",
       to: "#"
     },
     {
@@ -58,7 +58,7 @@ MainFooter.defaultProps = {
       to: "#"
     },
     {
-      title: "Blog",
+      title: "",
       to: "#"
     }
   ]
