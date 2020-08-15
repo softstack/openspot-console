@@ -4,34 +4,30 @@ import axios from 'axios';
 export default class TableAutoScaling extends React.Component{
 
 state = {
-    groups : [],
+    instances : [],
 }
 
 
     componentDidMount(){
-        axios.get(`http://localhost:4000/dev/asgroups`).then(res =>{
+      axios.get(`http://localhost:4000/dev/asgroups`).then(res =>{
+        const autoGroups = JSON.parse(res.data) 
+        console.log(autoGroups)          
+        this.setState({ 
+          instances: autoGroups.AutoScalingGroups[0].Instances
+         });
+
          
-         const autoGroups = JSON.parse(res.data) 
-        console.log(autoGroups.AutoScalingGroups[0].AutoScalingGroupName);    
-        this.setState({ groups: autoGroups.AutoScalingGroups[0].AutoScalingGroupName });
+      });
 
-        });
-
-
-        
     }
 
-    
 
     render(){
 
-      const elements = [this.state.groups];
-
-        const items = []
-
-        for (const [index, value] of elements.entries()) {
-          items.push(<td key={index}>{value}</td>)
-  }
+           
+       console.log(this.state.instances)
+       
+      
         return(
             
             <div class="row">
@@ -45,23 +41,24 @@ state = {
                       <thead class="bg-light">
                         <tr>
                           <th scope="col" class="border-0">Id</th>
-                          <th scope="col" class="border-0">Name</th>
-                          <th scope="col" class="border-0">Group Name</th>
-                          <th scope="col" class="border-0">Auto scalling group</th>
+                          <th scope="col" class="border-0">Type</th>
+                          <th scope="col" class="border-0">HealthStatus</th>
                           <th scope="col" class="border-0">Region</th>
-                          <th scope="col" class="border-0">Status</th>
+                         
                         </tr>
                       </thead>
                       <tbody>
+                      { this.state.instances.map((instance) =>
                         <tr>
-                          <td>123</td>
-                          <td><a href="teste">instance name</a></td>
-                          
-                          <td>Rteste-autoscaling</td>
-                          <td>sa-east-1</td>
-                          <td>active</td>
-                        </tr>
                         
+                          <td><a href="teste">{instance.InstanceId}</a></td>
+                          <td>{instance.InstanceType}</td>                   
+                          <td>{instance.HealthStatus}</td>
+                          <td>{instance.AvailabilityZone}</td>
+                         
+                          
+                        </tr>
+                        ) }
                       </tbody>
                     </table>
                   </div>
