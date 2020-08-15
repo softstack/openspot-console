@@ -3,34 +3,27 @@ import axios from 'axios';
 
 export default class TableAutoScaling extends React.Component{
 
-
-
   state = {
     Autoscaling : [],
 }
 
-
-
-    componentDidMount(){
-
-      
+    componentDidMount(){      
         axios.get(`http://localhost:4000/dev/asgroups`).then(res =>{
-          const autoGroups = JSON.parse(res.data) 
-          console.log(autoGroups)          
+          const autoGroups = JSON.parse(res.data)           
           this.setState({ 
             Autoscaling: autoGroups.AutoScalingGroups,
             
-            
            });
-           
         });
+
     }
 
 
+
+
     render(){
-      
+ 
          return(
-            
             <div class="row" >
             <div class="col">
               <div class="card card-small mb-4" >
@@ -61,8 +54,8 @@ export default class TableAutoScaling extends React.Component{
                           <td>{Autoscaling.MinSize}</td>
                           <td>{Autoscaling.AvailabilityZones}</td>
                           <td>
-                            <div class="custom-control custom-checkbox mb-1">
-                            <input type="checkbox" class="custom-control-input" id="formsCheckboxDefault"></input>
+                            <div class="custom-control custom-checkbox mb-1" >
+                            <input type="checkbox" class="custom-control-input" id="formsCheckboxDefault" ></input>
                             <label class="custom-control-label" for="formsCheckboxDefault"></label>
                           </div>
                         </td>  

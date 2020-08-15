@@ -7,27 +7,19 @@ state = {
     instances : [],
 }
 
-
     componentDidMount(){
       axios.get(`http://localhost:4000/dev/asgroups`).then(res =>{
-        const autoGroups = JSON.parse(res.data) 
-        console.log(autoGroups)          
+        const autoInstance = JSON.parse(res.data)           
         this.setState({ 
-          instances: autoGroups.AutoScalingGroups[0].Instances
+          instances: autoInstance.AutoScalingGroups[0].Instances
          });
-
          
       });
 
     }
 
-
     render(){
-
-           
-       console.log(this.state.instances)
        
-      
         return(
             
             <div class="row">
