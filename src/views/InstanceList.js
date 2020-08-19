@@ -10,6 +10,7 @@ state = {
     componentDidMount(){
       axios.get(`http://localhost:4000/dev/asgroups`).then(res =>{
         const autoInstance = JSON.parse(res.data)           
+        //console.log(autoInstance.AutoScalingGroups[0])
         this.setState({ 
           instances: autoInstance.AutoScalingGroups[0].Instances
          });
