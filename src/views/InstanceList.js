@@ -45,10 +45,10 @@ state = {
                       { this.state.instances.map((instance) =>
                         <tr>
                           <td>{instance.AutoScalingGroupName}</td>
-                          <td><a href="teste">{instance.Instances[0].InstanceId}</a></td>
-                          <td>{instance.Instances[0].InstanceType}</td>                   
-                          <td>{instance.Instances[0].HealthStatus}</td>
-                          <td>{instance.Instances[0].AvailabilityZone}</td>     
+                          <td><a href="teste">{instance.Instances[0].InstanceId ? instance.Instances[0].InstanceId : ""}</a></td>
+                          <td>{instance.Instances[0].InstanceType ? instance.Instances[0].InstanceId : ""}</td>                   
+                          <td>{instance.Instances[0].HealthStatus ? instance.Instances[0].InstanceId : ""}</td>
+                          <td>{instance.Instances[0].AvailabilityZone ? instance.Instances[0].InstanceId : ""}</td>     
                         </tr>
                         ) }
                       </tbody>
