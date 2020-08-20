@@ -9,10 +9,11 @@ state = {
 
     componentDidMount(){
       axios.get(`http://localhost:4000/dev/asgroups`).then(res =>{
-        const autoInstance = JSON.parse(res.data)           
+        const autoInstance = JSON.parse(res.data)  
+                 
         //console.log(autoInstance.AutoScalingGroups[0])
         this.setState({ 
-          instances: autoInstance.AutoScalingGroups[0].Instances
+          instances: autoInstance.AutoScalingGroups,
          });
          
       });
@@ -33,23 +34,21 @@ state = {
                     <table class="table mb-0">
                       <thead class="bg-light">
                         <tr>
+                          <th scope="col" class="border-0">Group</th>
                           <th scope="col" class="border-0">Id</th>
                           <th scope="col" class="border-0">Type</th>
                           <th scope="col" class="border-0">HealthStatus</th>
                           <th scope="col" class="border-0">Region</th>
-                         
                         </tr>
                       </thead>
                       <tbody>
                       { this.state.instances.map((instance) =>
                         <tr>
-                        
-                          <td><a href="teste">{instance.InstanceId}</a></td>
-                          <td>{instance.InstanceType}</td>                   
-                          <td>{instance.HealthStatus}</td>
-                          <td>{instance.AvailabilityZone}</td>
-                         
-                          
+                          <td>{instance.AutoScalingGroupName}</td>
+                          <td><a href="teste">{instance.Instances[0].InstanceId}</a></td>
+                          <td>{instance.Instances[0].InstanceType}</td>                   
+                          <td>{instance.Instances[0].HealthStatus}</td>
+                          <td>{instance.Instances[0].AvailabilityZone}</td>     
                         </tr>
                         ) }
                       </tbody>
