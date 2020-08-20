@@ -10,7 +10,7 @@ export default class TableAutoScaling extends React.Component{
 
   state = {
     Autoscaling : [],
-    Enable : [],
+    //Enable : [],
     isChecked: ""
     
   }
@@ -46,7 +46,7 @@ export default class TableAutoScaling extends React.Component{
           console.log(autoGroups)
           this.setState({ 
             Autoscaling: autoGroups.AutoScalingGroups,
-            Enable: autoGroups.AutoScalingGroups[0].Tags[0].Value,
+      //      Enable: autoGroups.AutoScalingGroups[0].Tags[0].Value,
             
            });
         });
